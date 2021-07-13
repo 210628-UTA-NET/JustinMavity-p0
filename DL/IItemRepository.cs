@@ -1,7 +1,6 @@
-namespace DL
-{
-    public interface IItemRepository
-    {
-         
+using System;
+namespace DL{
+    public interface IItemRepository{
+ 
     }
 }
