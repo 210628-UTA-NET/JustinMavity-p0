@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace DL.Entities
 {
-    public partial class Item
+    public partial class Items
     {
-        public Item()
+        public Items()
         {
-            LineItems = new HashSet<LineItem>();
-            Stores = new HashSet<Store>();
+            LineItems = new HashSet<LineItems>();
+            StoreItems = new HashSet<StoreItems>();
         }
 
         public int ItemId { get; set; }
@@ -19,7 +19,7 @@ namespace DL.Entities
         public string ItemDescription { get; set; }
         public string ItemCatagory { get; set; }
 
-        public virtual ICollection<LineItem> LineItems { get; set; }
-        public virtual ICollection<Store> Stores { get; set; }
+        public virtual ICollection<LineItems> LineItems { get; set; }
+        public virtual ICollection<StoreItems> StoreItems { get; set; }
     }
 }

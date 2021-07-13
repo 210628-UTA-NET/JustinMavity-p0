@@ -3,16 +3,15 @@ using Models;
 
 namespace BL{
     public interface IStoreBL{
-        List<Store> GetAllStores();
+        IEnumerable<Store> GetStores();
 
-        Store FindStoreById(int storeid);
+        Store GetStoreById(int storeid);
 
-        Store FindStoreByName(string name);
+        Store GetStoreByName(string name);
 
         void delete(int storeid);
 
         void deleteAll();
 
-        List<Store> GetStoreInventory();
     }
 }

@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace DL.Entities
 {
-    public partial class Order
+    public partial class Orders
     {
-        public Order()
+        public Orders()
         {
-            LineItems = new HashSet<LineItem>();
+            LineItems = new HashSet<LineItems>();
         }
 
         public int OrderId { get; set; }
@@ -17,8 +17,8 @@ namespace DL.Entities
         public int? StoreId { get; set; }
         public decimal? Price { get; set; }
 
-        public virtual Customer Cust { get; set; }
-        public virtual Store Store { get; set; }
-        public virtual ICollection<LineItem> LineItems { get; set; }
+        public virtual Customers Cust { get; set; }
+        public virtual Stores Store { get; set; }
+        public virtual ICollection<LineItems> LineItems { get; set; }
     }
 }

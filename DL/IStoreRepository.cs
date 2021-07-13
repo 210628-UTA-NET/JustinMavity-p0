@@ -1,12 +1,21 @@
+using System.Collections;
 using System.Collections.Generic;
 using Models;
 
 namespace DL{
     public interface IStoreRepository{
-         List<Store> GetAllStores();
+         IEnumerable<Store> GetAllStores();
 
-         Store GetStoreById(int storeid);
+         Store FindStoreById(int storeid);
 
-         Store GetStoreInventory(Store store);
+         Store GetStoreInventory(int id);
+
+         Store FindStoreByName(string name);
+
+         void AddInventory(Store store, Item item);
+
+         void DeleteStore(int id);
+
+         void DeleteAllStores();
     }
 }

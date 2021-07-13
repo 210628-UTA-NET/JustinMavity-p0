@@ -13,11 +13,21 @@ namespace StoreBL{
         }
 
         public Customer AddCustomer(Customer cust){
-            return custrepo.AddCustomer(cust);
+             custrepo.AddCustomer(cust);
+             return cust;
         }
 
         public List<Customer> GetAllCustomers(){
             return custrepo.GetAllCustomers();
         }
+
+        public Customer GetCustomer(int id){
+            return custrepo.GetCustomer(id);
+        }
+
+        public Customer GetCustomerByName(string name){
+            return custrepo.GetCustomer(name);
+        }
+
     }
 }

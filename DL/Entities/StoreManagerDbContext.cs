@@ -17,26 +17,17 @@ namespace DL.Entities
         {
         }
 
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<LineItem> LineItems { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<Store> Stores { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=tcp:justin-myserver.database.windows.net,1433;Initial Catalog=StoreManagerDb;Persist Security Info=False;User ID=justinmavity;Password=Brittany1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            }
-        }
-
+        public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<Items> Items { get; set; }
+        public virtual DbSet<LineItems> LineItems { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Stores> Stores { get; set; }
+        public virtual DbSet<StoreItems> StoreItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<Customer>(entity =>
+            modelBuilder.Entity<Customers>(entity =>
             {
                 entity.HasKey(e => e.CustId)
                     .HasName("PK__Customer__049E3AA96A9B8717");
@@ -64,7 +55,7 @@ namespace DL.Entities
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Item>(entity =>
+            modelBuilder.Entity<Items>(entity =>
             {
                 entity.Property(e => e.ItemCatagory)
                     .HasMaxLength(50)
@@ -81,10 +72,12 @@ namespace DL.Entities
                 entity.Property(e => e.Price).HasColumnType("decimal(2, 0)");
             });
 
-            modelBuilder.Entity<LineItem>(entity =>
+            modelBuilder.Entity<LineItems>(entity =>
             {
                 entity.HasKey(e => e.LineItemsId)
                     .HasName("PK__LineItem__091CFB71CE0BF0E9");
+
+                entity.Property(e => e.Price).HasColumnType("decimal(38, 0)");
 
                 entity.HasOne(d => d.Item)
                     .WithMany(p => p.LineItems)
@@ -97,7 +90,7 @@ namespace DL.Entities
                     .HasConstraintName("FK__LineItems__Order__68487DD7");
             });
 
-            modelBuilder.Entity<Order>(entity =>
+            modelBuilder.Entity<Orders>(entity =>
             {
                 entity.Property(e => e.Price).HasColumnType("decimal(2, 0)");
 
@@ -112,7 +105,7 @@ namespace DL.Entities
                     .HasConstraintName("FK__Orders__StoreId__656C112C");
             });
 
-            modelBuilder.Entity<Store>(entity =>
+            modelBuilder.Entity<Stores>(entity =>
             {
                 entity.Property(e => e.StoreAddress)
                     .IsRequired()
@@ -123,11 +116,20 @@ namespace DL.Entities
                     .IsRequired()
                     .HasMaxLength(60)
                     .IsUnicode(false);
+            });
 
+            modelBuilder.Entity<StoreItems>(entity =>
+            {
                 entity.HasOne(d => d.Item)
-                    .WithMany(p => p.Stores)
+                    .WithMany(p => p.StoreItems)
                     .HasForeignKey(d => d.ItemId)
-                    .HasConstraintName("FK__Stores__ItemId__619B8048");
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("StoreItems_FK_1");
+
+                entity.HasOne(d => d.Store)
+                    .WithMany(p => p.StoreItems)
+                    .HasForeignKey(d => d.StoreId)
+                    .HasConstraintName("StoreItems_FK");
             });
 
             OnModelCreatingPartial(modelBuilder);

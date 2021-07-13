@@ -19,11 +19,12 @@ namespace DL{
         /// <returns>Will return the Customer object from the database</returns>
         Customer GetCustomer(int id);
 
+        Customer GetCustomer(string name);
+
         /// <summary>
         /// It will add a customer to the database
         /// </summary>
-        /// <param name="cust">This is customer object that will be added to the database</param>
-        /// <returns>Will return the customer object we just added</returns>
-        Customer AddCustomer(Customer cust);
+        /// <param name="cust">This is the customer object to be added</param>
+        void AddCustomer(Customer cust);
     }
 }

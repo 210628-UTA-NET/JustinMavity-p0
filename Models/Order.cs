@@ -4,19 +4,21 @@ namespace Models{
     public class Order{
         public int Id { get; set; }
 
-        public Store Store { get ; set; }
+        public int? StoreId { get ; set; }
 
-        public List<Item> Items { get; } = new List<Item>();
+        public int? CustomerId {get; set;}
 
-        public double Price { get; set; }
+        public decimal Price{get; set;}
+
+        public List<Item> Items { get; set; } 
+
 
         public Order(){
         }
 
-        public Order(Store store, List<Item> items){
-            Store = store;
-            Items = items;
-
+        public Order(int storeId, int customerId){
+            StoreId= storeId;
+            CustomerId = customerId;
         }
         
     }

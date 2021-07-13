@@ -6,39 +6,28 @@ namespace BL{
     public class StoreBL : IStoreBL{
         private IStoreRepository storerepo;
 
-        private ItemRepository itemrepo;
-
-        public StoreBL(IStoreRepository storerepo){
-            this.storerepo = storerepo;
-        }
-
-        public List<Store> GetAllStores(){
+        public IEnumerable<Store> GetStores(){
             return storerepo.GetAllStores();
         }
 
-        public Store FindStoreById(int storeid){
-            return storerepo.GetStoreById(storeid);
+        public Store GetStoreById(int storeid){
+            return storerepo.FindStoreById(storeid);
         }
 
-        public Store FindStoreByName(string name){
-            return null;
+        public Store GetStoreByName(string name){
+            return storerepo.FindStoreByName(name);
         }
 
-
-        public List<Store> GetStoreInventory(){
-            return null;
-        }
-
-        public Store GetStoreInventory(Store store){
-            return storerepo.GetStoreInventory(store);
+        public List<Item> GetInventory(int id){
+            return storerepo.GetStoreInventory(id);
         }
 
         public void delete(int id){
-
+            storerepo.DeleteStore(id);
         }
 
         public void deleteAll(){
-
+            storerepo.DeleteAllStores();
         }
     }
 }
