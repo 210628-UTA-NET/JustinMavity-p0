@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="./StoreModel/StoreModel.csproj" />
-    <ProjectReference Include="./StoreDL/StoreDL.csproj" />
-    <ProjectReference Include="./StoreBL/StoreBL.csproj" />
+    <ProjectReference Include="../Models/Models.csproj"/>
+    <ProjectReference Include="../DL/DL.csproj" />
+    <ProjectReference Include="../BL/BL.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
   </ItemGroup>
 
   <PropertyGroup>

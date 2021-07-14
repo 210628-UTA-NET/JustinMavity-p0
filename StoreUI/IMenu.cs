@@ -1,3 +1,4 @@
+using System;
 namespace StoreUI{
     public enum MenuType{
         MainMenu,

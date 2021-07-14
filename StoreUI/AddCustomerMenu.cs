@@ -1,14 +1,17 @@
+using System;
+using BL;
+using DL;
+using Models;
 namespace StoreUI{
     public class AddCustomerMenu : IMenu {
-        public void Menu(){
-
-        }
+        public void Menu(){}
 
         public MenuType Choice(){
-            string userInput = Console.ReadLine();
-            switch(userInput){
+            string inputValue = Console.ReadLine();
+
+            switch(inputValue){
                 default:
-                    return MenuType.MainMenu;
+                    return MenuType.AddCustomerMenu;
             }
         }
     }

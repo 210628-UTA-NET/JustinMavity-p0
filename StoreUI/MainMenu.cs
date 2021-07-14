@@ -1,3 +1,5 @@
+using System;
+using System.Threading;
 namespace StoreUI{
     public class MainMenu : IMenu {
         public void Menu(){

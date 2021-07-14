@@ -8,7 +8,7 @@ namespace DL{
 
          Store FindStoreById(int storeid);
 
-         Store GetStoreInventory(int id);
+         List<Item> GetStoreInventory(int id);
 
          Store FindStoreByName(string name);
 

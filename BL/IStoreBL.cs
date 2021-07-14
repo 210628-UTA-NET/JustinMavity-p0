@@ -5,6 +5,8 @@ namespace BL{
     public interface IStoreBL{
         IEnumerable<Store> GetStores();
 
+        List<Item> GetInventory(int storeid);
+
         Store GetStoreById(int storeid);
 
         Store GetStoreByName(string name);
