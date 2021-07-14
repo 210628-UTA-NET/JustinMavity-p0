@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="../Models/Models.csproj"/>
+    <ProjectReference Include="../Models/Models.csproj" />
     <ProjectReference Include="../DL/DL.csproj" />
     <ProjectReference Include="../BL/BL.csproj" />
   </ItemGroup>
@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.8" />
   </ItemGroup>
 
   <PropertyGroup>

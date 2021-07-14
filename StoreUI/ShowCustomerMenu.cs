@@ -1,19 +1,17 @@
 using System;
 using System.Threading;
+using BL;
+using DL;
+
 namespace StoreUI{
-    public class ShowCustomerMenu : IMenu {
-        public void Menu(){
+    public class ShowCustomerMenu  {
+        private ICustomerBL customerBL;
 
+        public ShowCustomerMenu(ICustomerBL customerBL){
+            this.customerBL = customerBL;
         }
-
-        public MenuType Choice(){
-
-            string userInput = Console.ReadLine();
-
-            switch(userInput){
-                default: 
-                    return MenuType.ShowCustomerMenu;
-            }
-        }
+        public static void ListofCustoemrs(){
+            
+        } 
     }
 }
