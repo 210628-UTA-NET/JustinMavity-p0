@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DL;
 using Models;
 
-namespace StoreBL{
+namespace BL{
     public class CustomerBL : ICustomerBL{
 
         private ICustomerRepository custrepo;
