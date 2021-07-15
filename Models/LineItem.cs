@@ -2,29 +2,45 @@ using System;
 
 namespace Models {
     public class LineItem {
-        private Item items;
+
+        private Store store;
+        private Item item;
         private int quantity;
 
         public int LineItemId { get; set; }
-        public Item Items{
-            get{
-                return items;
-            }
-            set {
-                items = value;
-            }
+        
+        public LineItem(Store store, Item item){
+            this.store = store;
+            this.item = item;
         }
-        public int Quantity{
-            get{
-                return quantity;
-            }
-            set{
-                quantity = value;
-            }
+
+        public Store GetStore(){
+            return store;
         }
+
+        public void SetStore(Store store){
+            this.store = store;
+        }
+
+        public Item GetItem(){
+            return item;
+        }
+
+        public void SetItem(Item item){
+            this.item = item;
+        }
+
+        public int GetQuantity(){
+            return quantity;
+        }
+
+        public void SetQuantity(int quantity){
+            this.quantity = quantity;
+        }
+
         public override string ToString()
         {
-            return $"{Items}, Quantity: {Quantity}";
+            return $"{GetItem()}, Quantity: {GetQuantity()}";
         }
     }
 }

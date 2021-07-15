@@ -15,12 +15,7 @@ namespace DL{
 
 
         public IEnumerable<Model.Order> GetAllOrders(){
-            return context.Orders.Select(
-                ord => 
-                    new Model.Order(){
-                        StoreId = ord.StoreId
-                    }
-            ).ToList();
+            return (IEnumerable<Model.Order>)context.Orders.ToList();
         }
 
         public Model.Order GetOrder(int id){
@@ -40,7 +35,7 @@ namespace DL{
         public List<Model.Item> GetItems(int id){
             Model.Order o = GetOrder(id);
             var listOfItems = new List<Model.Item>();
-            foreach(var ele in o.Items){
+            foreach(var ele in o.GetItems()){
                 listOfItems.Append(ele);
             }
             return listOfItems;
@@ -50,8 +45,8 @@ namespace DL{
             Model.Order  order = GetOrder(orderId);
             double price = 0.00;
             var listOfItems = new List<Model.Item>();
-            foreach(var ele in order.Items){
-                price +=  ele.Price;
+            foreach(var ele in order.GetItems()){
+                price +=  ele.GetPrice();
             }
             return Convert.ToDecimal(price);
         }

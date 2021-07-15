@@ -11,7 +11,7 @@ namespace BL{
         /// Gets all the Customers stored in the database
         /// </summary>
         /// <returns>Reutrns a list of Customers from the database</returns>
-        List<Customer> GetAllCustomers();
+        IEnumerable<Customer> GetAllCustomers();
 
         Customer AddCustomer(Customer customer);
 

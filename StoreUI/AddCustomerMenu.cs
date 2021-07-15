@@ -15,10 +15,10 @@ namespace StoreUI{
             Console.Clear();
             Console.WriteLine("-----------Add Customer-----------");
             Console.WriteLine();
-            Console.WriteLine("[5] Name - " + newCustomer.Name);
-            Console.WriteLine("[4] Address - " + newCustomer.Address);
-            Console.WriteLine("[3] PhoneNumber - " + newCustomer.PhoneNumber);
-            Console.WriteLine("[2] Email - " + newCustomer.Email);
+            Console.WriteLine("[5] Name - " + newCustomer.GetName());
+            Console.WriteLine("[4] Address - " + newCustomer.GetAddress());
+            Console.WriteLine("[3] PhoneNumber - " + newCustomer.GetPhoneNumber());
+            Console.WriteLine("[2] Email - " + newCustomer.GetEmail());
             Console.WriteLine("[1] Add Customer");
             Console.WriteLine("[0] Go Back");
         }
@@ -33,16 +33,16 @@ namespace StoreUI{
                     customerBL.AddCustomer(newCustomer);
                     return MenuType.AddCustomerMenu;
                 case "2":
-                    newCustomer.Email = Console.ReadLine();
+                    newCustomer.SetEmail(Console.ReadLine());
                     return MenuType.AddCustomerMenu;
                 case "3":
-                    newCustomer.PhoneNumber = Console.ReadLine();
+                    newCustomer.SetPhoneNumber(Console.ReadLine());
                     return MenuType.AddCustomerMenu;
                 case "4":
-                    newCustomer.Address = Console.ReadLine();
+                    newCustomer.SetAddress(Console.ReadLine());
                     return MenuType.AddCustomerMenu;
                 case "5":
-                    newCustomer.Name = Console.ReadLine();
+                    newCustomer.SetName(Console.ReadLine());
                     return MenuType.AddCustomerMenu;
                 default:
                     return MenuType.AddCustomerMenu;

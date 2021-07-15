@@ -29,20 +29,14 @@ namespace DL{
             Store store = storerepo.FindStoreById(storeid);
 
             var listOfItems = new List<Item>();
-            foreach(var ele in store.Inventory){
+            foreach(var ele in store.GetInventory()){
                 listOfItems.Append<Item>(ele);
             } 
             return listOfItems;
         }
 
         public IEnumerable<Item> GetAllItems() {
-            return context.Items.Select(
-                item => 
-                    new Item(){
-                        Id = item.ItemId,
-                        Name = item.ItemName
-                    }
-            ).ToList();
+            return (IEnumerable<Item>)context.Items.ToList();
         }
     }
 }

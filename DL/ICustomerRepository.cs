@@ -10,7 +10,7 @@ namespace DL{
         /// Gets a list o Customers stored in the database
         /// </summary>
         /// <returns>Returns a list of Customers</returns>
-        List<Customer> GetAllCustomers();
+        IEnumerable<Customer> GetAllCustomers();
 
         /// <summary>
         /// This will get a specific Customer

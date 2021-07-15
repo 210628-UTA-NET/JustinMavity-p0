@@ -5,24 +5,64 @@ namespace Models{
     public class Customer{
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        private string name;
 
-        public string Address { get; set; }
+        private string address;
 
-        public string Email { get; set; }
+        private string email;
 
-        public string PhoneNumber { get; set; }
+        private string phoneNumber;
 
-        public List<Order> Orders { get; set; }
+        private List<Order> orders;
 
         public Customer(){
         }
 
-        public Customer(string naem, string address, string email, string phoneNumber){
-            Name = Name;
-            Address = address;
-            Email = email;
-            PhoneNumber = phoneNumber;
+        public Customer(string name, string address, string email, string phoneNumber){
+            this.name = name;
+            this.address = address;
+            this.email = email;
+            this.phoneNumber = phoneNumber;
+        }
+
+        public string GetName(){
+            return name;
+        }
+
+        public void SetName(string name){
+            this.name = name;
+        }
+
+        public string GetAddress(){
+            return address;
+        }
+
+        public void SetAddress(string address){
+            this.address = address;
+        }
+
+        public string GetEmail(){
+            return email;
+        }
+
+        public void SetEmail(string email){
+            this.email = email;
+        }
+
+        public string GetPhoneNumber(){
+            return phoneNumber;
+        }
+
+        public void SetPhoneNumber(string phoneNumber){
+            this.phoneNumber = phoneNumber;
+        }
+
+        public List<Order> GetOrders(){
+            return orders;
+        }
+
+        public void SetOrders(List<Order> orders){
+            this.orders = orders;
         }
     }
 }

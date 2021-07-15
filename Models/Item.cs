@@ -1,30 +1,62 @@
 namespace Models{
     public class Item{
         public int Id { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public string Description { get; set; }
+        private string name;
+        private double price;
+        private string description;
 
-        public string Catagory { get; set; }
+        private string catagory;
 
         public Item(){
         }
         public Item(string name, double price){
-            Name = name;
-            Price = price;
+            this.name = name;
+            this.price = price;
         }
 
         public Item(string name, double price, string description){
-            Name = name;
-            Price = price;
-            Description = description;
+            this.name = name;
+            this.price = price;
+            this.description = description;
         }
 
         public Item(string name, double price, string description, string catagory){
-            Name = name;
-            Price = price;
-            Description = description;
-            Catagory = catagory;
+            this.name = name;
+            this.price = price;
+            this.description = description;
+            this.catagory = catagory;
+        }
+
+        public string GetName(){
+            return name;
+        }
+
+        public void SetName(string name){
+            this.name = name;
+        }
+
+        public double GetPrice(){
+            return price;
+        }
+
+        public void SetPrice(double price){
+            this.price = price;
+        }
+
+        public string GetDescription(){
+            return description;
+        }
+
+        public void SetDescription(string description){
+            this.description = description;
+        }
+
+        public string GetCatagory(){
+            return catagory;
+        }
+
+        public void SetCatagory(string catagory){
+            this.catagory = catagory;
         }
     }
 }

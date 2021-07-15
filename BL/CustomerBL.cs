@@ -17,7 +17,7 @@ namespace BL{
              return cust;
         }
 
-        public List<Customer> GetAllCustomers(){
+        public IEnumerable<Customer> GetAllCustomers(){
             return custrepo.GetAllCustomers();
         }
 
