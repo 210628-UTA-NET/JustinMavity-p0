@@ -3,8 +3,10 @@ using BL;
 using DL;
 using Models;
 
-namespace StoreUI{ 
+namespace StoreUI{
+
     class Program {
+
         static void Main(string[] args){
 
             IMenu theMenu = new MainMenu();
@@ -13,11 +15,14 @@ namespace StoreUI{
             IFactory menuFactory = new MenuFactory();
 
             while (repeat){
+
                 Console.Clear();
+                Console.WriteLine(Models.Store.GetInventory());
                 theMenu.Menu();
                 currentMenu = theMenu.Choice();
 
                 switch(currentMenu){
+
                     case MenuType.MainMenu:
                         theMenu = menuFactory.GetMenu(MenuType.MainMenu);
                         break;

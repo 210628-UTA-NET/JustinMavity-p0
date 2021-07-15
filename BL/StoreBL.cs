@@ -4,6 +4,7 @@ using DL;
 
 namespace BL{
     public class StoreBL : IStoreBL{
+
         private IStoreRepository storerepo;
 
         public IEnumerable<Store> GetStores(){
@@ -18,8 +19,8 @@ namespace BL{
             return storerepo.FindStoreByName(name);
         }
 
-        public List<Item> GetInventory(int id){
-            return storerepo.GetStoreInventory(id);
+        public List<Item> GetInventory(int storeid){
+            return storerepo.GetStoreInventory(storeid);
         }
 
         public void delete(int id){
